@@ -1,0 +1,55 @@
+/* ---------- Layout helpers ---------- */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+/* ---------- Header styling---------- */
+.site-header {
+  background: #ffffff;
+  border-bottom: 1px solid #e6e9ee;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* title left, nav right */
+  gap: 16px;
+  padding: 18px 0;
+}
+
+/* Site title */
+.site-title {
+  font-size: 1.35rem;
+  margin: 0;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Main nav: horizontal links separated by subtle dividers */
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+.main-nav a {
+  color: #000000;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 6px 8px;
+  border-radius: 6px;
+  transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+/* Hover/focus states */
+.main-nav a:hover,
+.main-nav a:focus {
+  background: rgba(11,82,102,0.08);
+  color: #073b47;
+  transform: translateY(-1px);
+  outline: none;
+}
