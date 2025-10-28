@@ -134,3 +134,57 @@
 
 
 /* ===== MEDIA QUERIES ===== */
+@media (max-width: 1024px) {
+  .table-cell,
+  .table-header {
+    padding: 10px;
+    font-size: 15px;
+  }
+
+  .section-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 80px;
+  }
+
+  .section-item {
+    padding: 40px;
+    margin: 10px 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .table-main {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    box-shadow: none;
+    border: none;
+  }
+
+  .section-list {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .section-item {
+    padding: 30px 20px;
+    margin: 0 auto;
+    width: 90%;
+    font-size: 14px;
+  }
+
+  .section-item:hover {
+    transform: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .table-cell,
+  .table-header {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .table-header {
+    background-color: #bcd0ff;
+  }
+}
