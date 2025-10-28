@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KSTAB - Showcase Hub</title>
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+    <header class="site-header">
+            <div class="container header-inner">
+                <h1 class="site-title">Showcase Hub</h1>
+                <!-- Hamburger menu button (visible on small screens) -->
+                <button id="navToggle" class="nav-toggle" aria-controls="mainNav" aria-expanded="false" aria-label="Open navigation">
+                <span class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </span>
+                </button>
+                <nav id="mainNav" class="main-nav" aria-label="Main navigation">
+                    <a href="index.html">Home</a>
+                    <a href="profile.html">Profile</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="skills.html">Skills</a>
+                    <a href="achievements.html">Achievements</a>
+                </nav>
+            </div>
+        </header>
+   
+
+        <section class="section-main">
+            <h2 class="section-heading">Technical Skills</h2>
+            <table class="table-main table-row">
+              <thead class="table-cell table-header">
+                <tr>
+                  <th>Skill</th>
+                  <th>Proficiency Level</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>HTML</td>
+                  <td>Expert</td>
+                </tr>
+                <tr>
+                  <td>CSS</td>
+                  <td>Intermediate</td>
+                </tr>
+                <tr>
+                  <td>JavaScript</td>
+                  <td>Beginner</td>
+                </tr>
+                <tr>
+                  <td>Python</td>
+                  <td>Intermediate</td>
+                </tr>
+                <tr>
+                  <td>React</td>
+                  <td>Intermediate</td>
+                </tr>
+              </tbody>
+            </table>
+        
+            <h2 class="section-heading">Soft Skills</h2>
+            <ul class="section-list">
+              <li class="section-item">
+                <p class="section-text">Communication <br><br>
+                  <span class="text-span">Level: Advanced</span>
+                </p>
+              </li>
+              <li class="section-item">
+                <p class="section-text">Problem-solving<br><br>
+                  <span class="text-span">Level: Intermediate</span>
+                </p>
+              </li>
+              <li class="section-item">
+                <p class="section-text">Teamwork<br><br>
+                  <span class="text-span">Level: Advanced</span>
+                </p>
+              </li>
+              <li class="section-item">
+                <p class="section-text">Time Management<br><br>
+                  <span class="text-span">Level: Advanced</span>
+                </p>
+              </li>
+              <li class="section-item">
+                <p class="section-text">Leadership<br><br>
+                  <span class="text-span">Level: Intermediate</span>
+                </p>
+              </li>
+              <li class="section-item">
+                <p class="section-text">Creativity<br><br>
+                  <span class="text-span">Level: Advanced</span>
+                </p>
+              </li>
+            </ul>
+          </section>
+        
+          <footer>
+            <p>&copy; 2025 Showcase Hub. All rights reserved.</p>
+          </footer>
+        
+        </body>
+        </html>
+
+
+        <script>
+            (function () {
+              const btn = document.getElementById('navToggle');
+              const nav = document.getElementById('mainNav');
+          
+              if (!btn || !nav) return;
+          
+              // Toggle function
+              function toggleNav(open) {
+                const isOpen = typeof open === 'boolean' ? open : !(nav.classList.contains('open'));
+                if (isOpen) {
+                  nav.classList.add('open');
+                  btn.setAttribute('aria-expanded', 'true');
+                  btn.setAttribute('aria-label', 'Close navigation');
+                } else {
+                  nav.classList.remove('open');
+                  btn.setAttribute('aria-expanded', 'false');
+                  btn.setAttribute('aria-label', 'Open navigation');
+                }
+              }
+          
+              // Click to toggle
+              btn.addEventListener('click', function (e) {
+                toggleNav();
+              });
+          
+              // Close with Escape key
+              document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && nav.classList.contains('open')) {
+                  toggleNav(false);
+                  btn.focus();
+                }
+              });
+          
+              // Close nav when clicking outside (mobile)
+              document.addEventListener('click', function (e) {
+                const target = e.target;
+                if (!nav.contains(target) && !btn.contains(target) && nav.classList.contains('open')) {
+                  toggleNav(false);
+                }
+              });
+          
+              // Optional: close nav when a link is clicked
+              nav.addEventListener('click', function (e) {
+                if (e.target.tagName === 'A') toggleNav(false);
+              });
+            })();
+          </script>
