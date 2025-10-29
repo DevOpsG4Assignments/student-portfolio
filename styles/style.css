@@ -618,3 +618,88 @@ body {
   font-size: 0.95rem;
   color: #333;
 }
+
+/* === Profile Page Styles === */
+.profile-section {
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.profile-top {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.profile-avatar {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #00b4d8;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.profile-name {
+  font-size: 1.8rem;
+  color: #1e2a47;
+  margin-bottom: 0.3rem;
+}
+
+.profile-role {
+  color: #00b4d8;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.profile-bio {
+  color: #555;
+  line-height: 1.6;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 1.5rem 0;
+}
+
+.profile-details h3 {
+  color: #1e2a47;
+  margin-bottom: 0.5rem;
+}
+
+.edu-list,
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+.edu-list li,
+.contact-list li {
+  background: #f8faff;
+  padding: 0.7rem 1rem;
+  border-radius: 8px;
+  margin: 0.4rem 0;
+}
+
+.contact-list a {
+  color: #00b4d8;
+  text-decoration: none;
+}
+
+.contact-list a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .profile-top {
+    flex-direction: column;
+    text-align: center;
+  }
+}

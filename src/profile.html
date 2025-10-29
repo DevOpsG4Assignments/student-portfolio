@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Profile | Showcase Hub</title>
+  <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="site-title">Showcase Hub</h1>
+      <button id="navToggle" class="nav-toggle" aria-controls="mainNav" aria-expanded="false" aria-label="Open navigation">
+        <span class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </span>
+      </button>
+      <nav id="mainNav" class="main-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="profile.html" class="active">Profile</a>
+        <a href="projects.html">Projects</a>
+        <a href="skills.html">Skills</a>
+        <a href="achievements.html">Achievements</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="profile" class="card profile-section">
+      <div class="profile-top">
+        <img src="../assets/pic[1].png" alt="Student Photo" class="profile-avatar">
+        <div class="profile-info">
+          <h2 class="profile-name">Shamyam</h2>
+          <p class="profile-role">Software Engineering Student</p>
+          <p class="profile-bio">
+            Passionate about developing software solutions, exploring machine learning, and building web applications. 
+            Always eager to learn new technologies and collaborate with others on creative projects.
+          </p>
+        </div>
+      </div>
+
+      <hr class="divider">
+
+      <div class="profile-details">
+        <h3>Educational Background</h3>
+        <ul class="edu-list">
+          <li><strong>2023–Present:</strong> BS Software Engineering, University of Central Punjab</li>
+          <li><strong>2021–2023:</strong> FSc Pre-Engineering, Govt. College</li>
+          <li><strong>2019–2021:</strong> Matriculation, Model High School</li>
+        </ul>
+
+        <h3>Contact</h3>
+        <ul class="contact-list">
+          <li>Email: <a href="mailto:bakhtakar@student.uol.edu.pk">shamyam@student.ucp.edu.pk</a></li>
+          <li>LinkedIn: <a href="https://linkedin.com/in/bakhtakar" target="_blank">linkedin.com/in/shamyam</a></li>
+          <li>GitHub: <a href="https://github.com/bakhtakar" target="_blank">github.com/shamyam</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Showcase Hub | Built by Team KSTAB</p>
+  </footer>
+
+  <script>
+    (function () {
+      const btn = document.getElementById('navToggle');
+      const nav = document.getElementById('mainNav');
+      if (!btn || !nav) return;
+
+      function toggleNav(open) {
+        const isOpen = typeof open === 'boolean' ? open : !(nav.classList.contains('open'));
+        if (isOpen) {
+          nav.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+          btn.setAttribute('aria-label', 'Close navigation');
+        } else {
+          nav.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+          btn.setAttribute('aria-label', 'Open navigation');
+        }
+      }
+
+      btn.addEventListener('click', function () { toggleNav(); });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && nav.classList.contains('open')) toggleNav(false);
+      });
+      document.addEventListener('click', function (e) {
+        if (!nav.contains(e.target) && !btn.contains(e.target) && nav.classList.contains('open')) toggleNav(false);
+      });
+      nav.addEventListener('click', function (e) { if (e.target.tagName === 'A') toggleNav(false); });
+    })();
+  </script>
+</body>
+</html>
