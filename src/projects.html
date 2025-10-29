@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Showcase Hub</title>
+  <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+  
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="site-title">Showcase Hub</h1>
+      <button id="navToggle" class="nav-toggle" aria-controls="mainNav" aria-expanded="false" aria-label="Open navigation">
+        <span class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </span>
+      </button>
+      <nav id="mainNav" class="main-nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="profile.html">Profile</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="skills.html">Skills</a>
+        <a href="achievements.html">Achievements</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+   
+    <section class="page-title fade-in">
+      <h2>Our Creative Projects</h2>
+      <p>Innovative ideas turned into real-world digital experiences 💡</p>
+    </section>
+
+    <section class="projects-gallery fade-in">
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80" alt="Portfolio Showcase">
+        <div class="project-overlay">
+          <h3>Portfolio Showcase</h3>
+          <p>A collaborative website for showcasing student portfolios using Git workflows and modern web tools.</p>
+          <a href="#" class="btn">View Details</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=800&q=80" alt="Task Tracker">
+        <div class="project-overlay">
+          <h3>Task Tracker</h3>
+          <p>A productivity web app to manage tasks, deadlines, and progress with an intuitive dashboard interface.</p>
+          <a href="#" class="btn">View Details</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=800&q=80" alt="Weather Dashboard">
+        <div class="project-overlay">
+          <h3>Weather Dashboard</h3>
+          <p>A dynamic weather app using APIs to deliver real-time forecasts with a clean and responsive UI.</p>
+          <a href="#" class="btn">View Details</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+    (function () {
+      const btn = document.getElementById('navToggle');
+      const nav = document.getElementById('mainNav');
+      if (!btn || !nav) return;
+
+      function toggleNav(open) {
+        const isOpen = typeof open === 'boolean' ? open : !(nav.classList.contains('open'));
+        if (isOpen) {
+          nav.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+          btn.setAttribute('aria-label', 'Close navigation');
+        } else {
+          nav.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+          btn.setAttribute('aria-label', 'Open navigation');
+        }
+      }
+
+      btn.addEventListener('click', () => toggleNav());
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && nav.classList.contains('open')) toggleNav(false);
+      });
+      document.addEventListener('click', (e) => {
+        if (!nav.contains(e.target) && !btn.contains(e.target) && nav.classList.contains('open')) toggleNav(false);
+      });
+      nav.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') toggleNav(false);
+      });
+    })();
+  </script>
+</body>
+</html>
