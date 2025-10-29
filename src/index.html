@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Showcase Hub</title>
+        <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+       <header class="site-header">
+            <div class="container header-inner">
+                <h1 class="site-title">Showcase Hub</h1>
+                <!-- Hamburger menu button (visible on small screens) -->
+                <button id="navToggle" class="nav-toggle" aria-controls="mainNav" aria-expanded="false" aria-label="Open navigation">
+                <span class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </span>
+                </button>
+                <nav id="mainNav" class="main-nav" aria-label="Main navigation">
+                    <a href="index.html">Home</a>
+                    <a href="profile.html">Profile</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="skills.html">Skills</a>
+                    <a href="achievements.html">Achievements</a>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <section id="group-name">
+                <div class="group-info">
+                    <h2>Group name:</h2>
+                    <p>KSTAB</p>
+                </div>     
+            </section>
+
+            <section id="meet-team" class="card team-section">
+                <h2 class="section-title">Meet the team</h2>
+
+                <p class="team-intro">
+                    We are a group of five software Engineering students building a student portfolio showcase site that
+                    demonstrates a collaborative Git workflow such as feature branches, pull requests,
+                    rebase-based integration, and protected branches.
+                </p>
+
+                <div class="team-grid">
+                    <div class="team-member">
+                        <p class="avatar" style="background-color: rgb(25, 42, 86);">K</p>
+                        <div>
+                            <h4 class="member-name">Khizra Jamshaid</h4>
+                            <p class="member-role">Team Lead</p>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <p class="avatar" style="background-color: rgb(45, 52, 54);">B</p>
+                        <div>
+                            <h4 class="member-name">Bakhtakar</h4>
+                            <p class="member-role">Profile manager</p>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <p class="avatar" style="background-color: rgb(70, 130, 180);">S</p>
+                        <div>
+                            <h4 class="member-name">Shamyam</h4>
+                            <p class="member-role">Projects manager</p>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <p class="avatar" style="background-color: rgb(46, 139, 87);">T</p>
+                        <div>
+                            <h4 class="member-name">Tooba Noor Durrani</h4>
+                            <p class="member-role">Skills manager</p>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <p class="avatar" style="background-color: rgb(176, 196, 222);">A</p>
+                        <div>
+                            <h4 class="member-name">Alishba Noor</h4>
+                            <p class="member-role">Achievements manager</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
+
+<script>
+  (function () {
+    const btn = document.getElementById('navToggle');
+    const nav = document.getElementById('mainNav');
+
+    if (!btn || !nav) return;
+
+    // Toggle function
+    function toggleNav(open) {
+      const isOpen = typeof open === 'boolean' ? open : !(nav.classList.contains('open'));
+      if (isOpen) {
+        nav.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        btn.setAttribute('aria-label', 'Close navigation');
+      } else {
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-label', 'Open navigation');
+      }
+    }
+
+    // Click to toggle
+    btn.addEventListener('click', function (e) {
+      toggleNav();
+    });
+
+    // Close with Escape key
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('open')) {
+        toggleNav(false);
+        btn.focus();
+      }
+    });
+
+    // Close nav when clicking outside (mobile)
+    document.addEventListener('click', function (e) {
+      const target = e.target;
+      if (!nav.contains(target) && !btn.contains(target) && nav.classList.contains('open')) {
+        toggleNav(false);
+      }
+    });
+
+    // Optional: close nav when a link is clicked
+    nav.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') toggleNav(false);
+    });
+  })();
+</script>
