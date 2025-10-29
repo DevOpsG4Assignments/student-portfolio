@@ -271,16 +271,7 @@ body {
   color: #2c2c2c;
 }
 
-/* ===== Navbar ===== */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 60px;
-  background-color: #ffffff;
-  border-bottom: 1px solid #e3e6ea;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
+
 
 .logo {
   font-weight: 700;
@@ -406,7 +397,7 @@ body {
   transform: scale(1.05);
 }
 
-/* ✨ Fade-in Animation */
+/*Fade-in Animation */
 .fade-in {
   opacity: 0;
   transform: translateY(30px);
