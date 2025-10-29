@@ -1,4 +1,5 @@
 
+
 /* Base styles */
 
 
@@ -865,6 +866,7 @@
   }
 }
 
+
 /* ===== BASE BODY ===== */
 .body {
   font-family: 'Georgia', serif;
@@ -874,6 +876,30 @@
   color: #333;
 }
 
+
+
+
+
+/* ===== NAVIGATION ===== */
+.nav-list {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  /* gap: 25px; */
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  padding: 0;
+  background: none;
+}
+
+.nav-link:hover {
+  color: #3c6e71;
+}
 
 /* ===== SECTIONS ===== */
 .section-main {
@@ -1033,4 +1059,3 @@
     background-color: #bcd0ff;
   }
 }
-
