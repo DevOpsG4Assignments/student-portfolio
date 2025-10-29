@@ -71,3 +71,53 @@
 
 </body>
 </html>
+
+
+<script>
+  (function () {
+    const btn = document.getElementById('navToggle');
+    const nav = document.getElementById('mainNav');
+
+    if (!btn || !nav) return;
+
+    // Toggle function
+    function toggleNav(open) {
+      const isOpen = typeof open === 'boolean' ? open : !(nav.classList.contains('open'));
+      if (isOpen) {
+        nav.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        btn.setAttribute('aria-label', 'Close navigation');
+      } else {
+        nav.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-label', 'Open navigation');
+      }
+    }
+
+    // Click to toggle
+    btn.addEventListener('click', function (e) {
+      toggleNav();
+    });
+
+    // Close with Escape key
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && nav.classList.contains('open')) {
+        toggleNav(false);
+        btn.focus();
+      }
+    });
+
+    // Close nav when clicking outside (mobile)
+    document.addEventListener('click', function (e) {
+      const target = e.target;
+      if (!nav.contains(target) && !btn.contains(target) && nav.classList.contains('open')) {
+        toggleNav(false);
+      }
+    });
+
+    // Optional: close nav when a link is clicked
+    nav.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') toggleNav(false);
+    });
+  })();
+</script>
