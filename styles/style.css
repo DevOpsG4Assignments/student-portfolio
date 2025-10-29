@@ -1,3 +1,28 @@
+/* ---------- Layout helpers ---------- */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* ---------- Header styling---------- */
+.site-header {
+  background: #ffffff;
+  border-bottom: 1px solid #e6e9ee;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* title left, nav right */
+  gap: 16px;
+  padding: 18px 0;
+}
+
 /* Base styles */
 body {
   margin: 0;
@@ -37,10 +62,28 @@ body {
   margin: 0;
   font-weight: 700;
   white-space: nowrap;
+  font-size: 1.35rem;
+  margin: 0;
+  font-weight: 700;
+  white-space: nowrap;
 }
 
 /* Main nav: horizontal links separated by subtle dividers */
 .main-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
+.main-nav a {
+  color: #000000;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 6px 8px;
+  border-radius: 6px;
+  transition: background 160ms ease, color 160ms ease, transform 160ms ease;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -60,6 +103,265 @@ body {
 /* Hover/focus states */
 .main-nav a:hover,
 .main-nav a:focus {
+  background: rgba(11, 82, 102, 0.08);
+  color: #073b47;
+  transform: translateY(-1px);
+  outline: none;
+}
+
+/* Group name section*/
+#group-name {
+  display: flex;
+  justify-content: center;
+}
+
+.group-info {
+  padding: 20px;
+  max-width: 1100px;
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+}
+
+.group-info h2 {
+  font-size: 1.6rem;
+  letter-spacing: 0.5px;
+}
+
+.group-info p {
+  color: #073b47;
+  font-weight: 600;
+  padding-left: 20px;
+  font-style: italic;
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+
+/* Team section */
+.team-section {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border: 1px solid #dee2e6;
+  border-radius: 16px;
+
+  text-align: center;
+  padding: 18px;
+  max-width: 1100px;
+  margin: 0 auto 32px;
+}
+
+.section-title {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+
+.team-intro {
+  color: #555;
+  margin: 0 0 20px 0;
+  font-size: 0.95rem;
+}
+
+/* Responsive grid for members */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 30px;
+  align-items: start;
+  justify-items: center;
+  padding: 6px 12px;
+}
+
+/* Individual member card */
+.team-member {
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 16px;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+  cursor: default;
+  text-align: center;
+  padding: 8px;
+}
+
+.team-member:hover,
+.team-member:focus-within {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 18px rgba(15, 23, 42, 0.08);
+}
+
+/* Circular avatar */
+.avatar {
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: xx-large;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  align-items: center;
+  margin: 0 auto 10px auto;
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.09);
+  border: 4px solid rgba(255, 255, 255, 0.7);
+}
+
+/* Name + role */
+.member-name {
+  margin: 6px 0 2px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #162029;
+}
+
+.member-role {
+  margin: 0;
+  font-size: 0.88rem;
+  color: #6b7280;
+}
+
+/*  ----- Responsiveness ----- */
+@media (max-width: 420px) {
+  .avatar {
+    width: 86px;
+    height: 86px;
+  }
+
+  .section-title {
+    font-size: 1.35rem;
+  }
+}
+
+/* --- Hamburger button (hidden on desktop) --- */
+.nav-toggle {
+  background: transparent;
+  border: 0;
+  padding: 8px;
+  display: none;
+  /* desktop: hidden */
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.hamburger {
+  display: inline-block;
+  width: 26px;
+  height: 18px;
+  position: relative;
+}
+
+.hamburger .bar {
+  display: block;
+  height: 2px;
+  background: #0b5266;
+  border-radius: 2px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.hamburger .bar:nth-child(1) {
+  top: 0;
+}
+
+.hamburger .bar:nth-child(2) {
+  top: 8px;
+}
+
+.hamburger .bar:nth-child(3) {
+  top: 16px;
+}
+
+/* --- Mobile nav hidden by default; visible when .open --- */
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+}
+
+/* Breakpoint: mobile layout */
+@media (max-width: 760px) {
+  .avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .team-grid {
+    gap: 16px;
+  }
+
+  .team-member {
+    max-width: 170px;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  /* show hamburger */
+  .team-section {
+    margin: 0 10px
+  }
+
+  /* hide the nav by default on small screens */
+  .main-nav {
+    position: absolute;
+    top: 64px;
+    /* below header */
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    padding: 12px 16px;
+    display: none;
+    /* hidden by default */
+    flex-direction: column;
+    gap: 6px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 8px 20px rgba(10, 20, 30, 0.06);
+  }
+
+  .main-nav a {
+    display: block;
+    padding: 8px 100%;
+    font-weight: 600;
+  }
+
+  /* When the nav is open, show it */
+  .main-nav.open {
+    display: flex;
+  }
+
+  /* make header inner stack vertically and keep space for the absolute nav */
+  .header-inner {
+    position: relative;
+    flex-direction: row;
+    /* keep title + toggle on same line */
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    gap: 8px;
+  }
+
+  /* hide desktop separators when stacked */
+  .main-nav a+a::before {
+    display: none;
+  }
+}
+
+/* Hamburger 'active' animation (when nav open) */
+.nav-toggle[aria-expanded="true"] .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
   background: rgba(11, 82, 102, 0.08);
   color: #073b47;
   transform: translateY(-1px);
